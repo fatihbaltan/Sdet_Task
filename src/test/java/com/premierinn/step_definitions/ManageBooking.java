@@ -1,9 +1,11 @@
 package com.premierinn.step_definitions;
 
+import com.premierinn.pages.DashboardPage;
 import com.premierinn.pages.HomePage;
 import com.premierinn.utilities.ConfigurationReader;
 import com.premierinn.utilities.Driver;
 import io.cucumber.java.en.*;
+import org.junit.Assert;
 
 public class ManageBooking {
 
@@ -34,8 +36,12 @@ public class ManageBooking {
 
     @When("the user click on the search user should be in the booking information page")
     public void the_user_click_on_the_search_user_should_be_in_the_booking_information_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        HomePage homePage = new HomePage();
+        homePage.searchButton.click();
+        DashboardPage dashboardPage = new DashboardPage();
+        /*String actualinfo = dashboardPage.bookingInfo.getText();
+        System.out.println("actualinfo = " + actualinfo);*/
+        Assert.assertEquals("Booking information", dashboardPage.bookingInfo.getText());
     }
 
     @When("the user click in the Amend booking")

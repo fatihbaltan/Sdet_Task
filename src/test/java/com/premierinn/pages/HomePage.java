@@ -17,6 +17,7 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//button[@id='date-picker-day-2182021']")
     public WebElement selectedDate;
 
-
+    @FindBy(id = "find-booking-form-button")
+    public WebElement searchButton;
 
 }
