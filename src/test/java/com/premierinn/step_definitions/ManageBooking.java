@@ -1,5 +1,6 @@
 package com.premierinn.step_definitions;
 
+import com.premierinn.pages.AmendDetailsPage;
 import com.premierinn.pages.DashboardPage;
 import com.premierinn.pages.HomePage;
 import com.premierinn.utilities.ConfigurationReader;
@@ -46,20 +47,24 @@ public class ManageBooking {
 
     @When("the user click in the Amend booking")
     public void the_user_click_in_the_Amend_booking() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.amendBooking.click();
     }
 
     @Then("the user in the Amend booking page")
     public void the_user_in_the_Amend_booking_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        AmendDetailsPage amendDetailsPage = new AmendDetailsPage();
+        Assert.assertEquals("Amend your booking",amendDetailsPage.amendYourBooking.getText());
     }
 
     @Then("the user change the arrival date to {int} August")
     public void the_user_change_the_arrival_date_to_August(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        AmendDetailsPage amendDetailsPage = new AmendDetailsPage();
+        amendDetailsPage.arrivalDate.click();
+        amendDetailsPage.newDate.click();
+
+        String  src = amendDetailsPage.captureSection.getText();
+        System.out.println("src = " + src);
     }
 
 }
